@@ -12,7 +12,7 @@ const envSchema = z.object({
     
     POLAR_ACCESS_TOKEN: z.string().min(1, { message: 'POLAR_ACCESS_TOKEN is required' }),
     POLAR_WEBHOOK_SECRET: z.string().min(1, { message: 'POLAR_WEBHOOK_SECRET is required' }),
-    POLAR_API_BASE: z.string().url({ message: 'POLAR_API_BASE must be a valid URL' }).default('https://api.polar.com/v1'),
+    POLAR_API_BASE: z.string().url({ message: 'POLAR_API_BASE must be a valid URL' }).default('https://api.polar.sh/v1'),    
     POLAR_CHECKOUT_PRODUCT_ID: z.string(),
 
     STREAM_API_KEY: z.string().min(1, { message: 'STREAM_API_KEY is required' }),

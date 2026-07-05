@@ -66,6 +66,7 @@ export async function clerkWebhookHandler(req: Request, res: Response) {
         return res.status(200).send('OK');
     } catch (err) {
         console.error('Error in clerkWebhookHandler:', err);
-        return res.status(400).json('Internal Server Error');
-    }
-}
+        // Signature verification failures are client errors; everything else is a server error
+        // so Clerk retries delivery.
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }}
